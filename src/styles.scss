@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+
+@use './styles/light-theme' as light;
+@use './styles/dark-theme' as dark;
+@use './styles/mixin' as mixin;
+@use './styles/reset' as reset;
+
+
+body.light {
+  @include mixin.theme(
+    $background-color: light.$background-color,
+    $text-color: light.$text-color,
+    $card-background: light.$card-background,
+    $border-color: light.$border-color
+  );
+}
+
+body.dark {
+  @include mixin.theme(
+    $background-color: dark.$background-color,
+    $text-color: dark.$text-color,
+    $card-background: dark.$card-background,
+    $border-color: dark.$border-color
+  );
+}

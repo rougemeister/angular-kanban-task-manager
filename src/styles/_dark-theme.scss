@@ -1,0 +1,8 @@
+// _theme-dark.scss
+
+@use 'variables' as vars;
+
+$background-color: vars.$color-dark-2;
+$text-color: vars.$color-white;
+$card-background: vars.$color-dark-3;
+$border-color: vars.$color-dark-4;
