@@ -1,26 +1,36 @@
+@import '../../../styles/variables';
+
+
+
+.theme-wrapper {
+    height: 48px;
+    width: 235px;
+    background-color: $color-light-1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+}
 .toggle-container {
     width: 100px;
-    height: 60px;
+    height: 100%;
     position: relative;
-    background: transparent; // Using global surface color
-
+    background: transparent; // Use the background color from the theme
     transition: background-color 0.5s;
-
-    // Transition based on light/dark theme
   }
-
+  
   label {
     width: 48px;
     height: 24px;
     position: relative;
+    top: -12px;
     display: block;
-    background-color: var(--primary-color); // Global accent color
+    background-color: $color-primary-2; // Primary color for the toggle switch
     border-radius: 200px;
     margin: 0 auto;
     transition: background-color 0.3s, left 0.3s;
     cursor: pointer;
-
-
+  
     &::after {
       content: "";
       width: 12px;
@@ -28,49 +38,41 @@
       position: absolute;
       top: 5.5px;
       left: 4px;
-      background: var(--heading-color); // Global surface color for toggle knob
+      background: $color-white; // Light color for the toggle knob
       border-radius: 100px;
       transition: left 0.5s, background-color 0.5s;
-
     }
   }
-
+  
   input {
     width: 0;
     height: 0;
     visibility: hidden;
   }
-
+  
+  input:checked + label {
+    background-color: $color-primary-1; // Change color when toggled
+  }
+  
   input:checked + label::after {
     left: 33px;
   }
-
-  svg {
+  
+ img {
     position: absolute;
-    top: -9px;
+    bottom: 15px;
     width: 18px;
-    transition: fill 0.3ss;
-
+    transition: fill 0.3s;
+    fill: $color-gray-1;
+  
     &.sun {
-      left: 80px;
-      fill: var(--heading-color); // Use surface color from global
-
+      left: 90px;
     }
-
+  
     &.moon {
-      left: 1px;
-      fill: var(--heading-color); // Use surface color from global
-
+      left: -7px;
     }
   }
+  
 
-  input:checked ~ svg.sun {
-    fill: var(--heading-color); // Switch sun color when checked
-  }
-
-  input:checked ~ svg.moon {
-    fill: var(--heading-color); // Switch moon color when checked
-
-    
-  }
-
+  
