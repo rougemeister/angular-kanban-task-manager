@@ -1,24 +1,14 @@
+// Link to font 
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
-@use './styles/light-theme' as light;
-@use './styles/dark-theme' as dark;
-@use './styles/mixin' as mixin;
-@use './styles/reset' as reset;
-
-
-body.light {
-  @include mixin.theme(
-    $background-color: light.$background-color,
-    $text-color: light.$text-color,
-    $card-background: light.$card-background,
-    $border-color: light.$border-color
-  );
+::-webkit-scrollbar {
+    display: none; 
 }
 
-body.dark {
-  @include mixin.theme(
-    $background-color: dark.$background-color,
-    $text-color: dark.$text-color,
-    $card-background: dark.$card-background,
-    $border-color: dark.$border-color
-  );
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
 }

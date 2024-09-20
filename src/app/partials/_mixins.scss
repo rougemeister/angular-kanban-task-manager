@@ -1,0 +1,132 @@
+@import './variables';
+@import './functions';
+
+// Typography mixins
+
+@mixin headingXL() {
+    font-family: $jakafont;
+    font-size: px-to-rem(24px);
+    line-height: px-to-rem(30px);
+    font-weight: 700;
+}
+
+@mixin headingL() {
+    font-family: $jakafont;
+    font-size: px-to-rem(18px);
+    line-height: px-to-rem(23px);
+    font-weight: 700;
+}
+
+@mixin headingM() {
+    font-family: $jakafont;
+    font-size: px-to-rem(15px);
+    line-height: px-to-rem(19px);
+    font-weight: 700;
+}
+
+@mixin headingS() {
+    font-family: $jakafont;
+    font-size: px-to-rem(12px);
+    line-height: px-to-rem(15px);
+    letter-spacing: px-to-rem(2.4px);
+    font-weight: 700;
+    color: $medium-grey;
+}
+
+@mixin paragM() {
+    font-family: $jakafont;
+    font-size: px-to-rem(13px);
+    line-height: px-to-rem(23px);
+    font-weight: 500;
+}
+
+@mixin paragB() {
+    font-family: $jakafont;
+    font-size: px-to-rem(12px);
+    line-height: px-to-rem(15px);
+    font-weight: 700;
+}
+
+
+// Interactive elements mixins
+// Light Version
+
+@mixin add-new-task-btn {
+    @include headingM;
+    letter-spacing: 0;
+    color: $white;
+    padding: 0 25px;
+    height: 48px;
+    border-radius: 24px;
+    background: $main-purple;
+    border: none;
+    cursor: pointer;
+}
+
+@mixin add-new-task-btn-hover {
+    background: $main-purple-hover;
+}
+
+@mixin add-new-task-btn-idle {
+    @include headingM;
+    letter-spacing: 0;
+    color: $white;
+    padding: 0 25px;
+    height: 48px;
+    border-radius: 24px;
+    background: $main-purple-idle;
+    border: none;
+    cursor: not-allowed
+}
+
+@mixin primary-btnL() {
+    @include headingL;
+    color: $white;
+    width: 255px;
+    height: 48px;
+    border-radius: 24px;
+    background: $main-purple;
+    border: none;
+}
+
+@mixin primary-btnS() {
+    @include paragM;
+    color: $white;
+    width: 255px;
+    height: 40px;
+    border-radius: 20px;
+    background: $main-purple;
+    border: none;
+}
+
+@mixin primary-btnL-hover() {
+    @include primary-btnL;
+    background: $main-purple-hover;
+}
+
+@mixin primary-btnS-hover() {
+    @include primary-btnS;
+    background: $main-purple-hover;
+}
+
+@mixin secondary-btn() {
+    @include primary-btnS;
+    background: $main-purple-idle;
+    color: $main-purple;
+}
+
+@mixin secondary-btn-hover() {
+    @include primary-btnS;
+    background: $main-purple-idle-hover;
+    color: $main-purple;
+}
+
+@mixin destructive-btn() {
+    @include primary-btnS;
+    background: $red;
+}
+
+@mixin destructive-btn-hover() {
+    @include primary-btnS;
+    background: $red-hover;
+}

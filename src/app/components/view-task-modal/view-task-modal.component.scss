@@ -1,0 +1,26 @@
+@import '../../partials/variables';
+@import '../../partials/mixins';
+
+div.task-container {
+    width: 480px;
+    height: 500px;
+    border-radius: 6px;
+    background: $white;
+    padding: 32px;
+
+    div.heading {
+        @include headingL;
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+
+        p.task-title {
+            width: 387px;
+        }
+    }
+}
+
+div.lightbox {
+    width: 100%;
+    height: 100%;
+}
