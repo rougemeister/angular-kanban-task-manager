@@ -1,11 +1,43 @@
+<div
+  [ngClass]="{ dark: darkMode }"
+  class="root-container relative flex overflow-hidden"
+>
+  <app-sidebar
+  [boards]="(boards$ | async) ?? []"
+  [activeBoard]="(activeBoard$ | async) ?? null"
+  [opened]="isSidebarOpen"
+  (selected)="selectBoard($event)"
+  (enableDarkMode)="toggleDarkMode($event)"
+  (closeSidebar)="closeSidebar()"
+  (add)="addBoard()"
+  ></app-sidebar>
 
-<div class="app-container">
-    <app-view-task-modal></app-view-task-modal>
-    <app-side-bar></app-side-bar>
-    <div class="right-side">
-        <app-header></app-header>
-        <app-board></app-board>
-    </div>
+  <app-sidebar-toggle (openSidebar)="openSideBar()"></app-sidebar-toggle>
+
+  <main
+    class="main flex-1 duration-700"
+    [ngClass]="{ 'sm:ml-[26rem] lg:ml-[30rem]': isSidebarOpen }"
+  >
+    <app-navbar
+      [opened]="isSidebarOpen"
+      [activeBoard]="(activeBoard$ | async) ?? null"
+      [boards]="(boards$ | async) ?? []"
+      [darkMode]="darkMode"
+      (boardSelect)="selectBoard($event)"
+      (boardAdd)="addBoard()"
+      (boardEdit)="editBoard()"
+      (boardDelete)="deleteBoard()"
+      (taskAdd)="addTask()"
+    ></app-navbar>
+
+    <app-project-board
+      [darkMode]="darkMode"
+      [activeBoard]="(activeBoard$ | async) ?? null"
+      (columnAdd)="editBoard()"
+      (boardEdit)="updateBoardAfterTaskReorder($event)"
+      (taskUpdate)="updateTask($event)"
+      (taskDeleteModal)="deleteTask($event)"
+      (taskUpdateModal)="editTask($event)"
+    ></app-project-board>
+  </main>
 </div>
-
-<router-outlet />
